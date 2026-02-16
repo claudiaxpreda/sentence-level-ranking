@@ -11,7 +11,6 @@ from scipy import special
 from scipy.stats import rankdata
 
 
-
 def qloss_func(prompts_with_label, prompts, tokenizer, model, device, loss_fn):
 
   input_prompt = tokenizer(prompts, return_tensors="pt", truncation=True, max_length=2048, padding='longest').to(device)
@@ -35,13 +34,10 @@ def qloss_func(prompts_with_label, prompts, tokenizer, model, device, loss_fn):
 
     # Remove the last logit (unnecessary, automatically added by the model)
     logit = logit[:-1]
-
     # Get from the logits just the ones corresponding to the actual generation (label)
     good_logit = logit[-(len(whole) - len(input)):]
-
     # Get the label
     good_label = whole[len(input):]
-
 
     loss = loss_fn(
         good_logit,
@@ -75,7 +71,6 @@ def process_loss_scores_output(losses, no_sents):
     scores.append(json.dumps(entry))
   
   return scores
-
 
 def process_scores_output(losses, no_sents):
   scores = []
