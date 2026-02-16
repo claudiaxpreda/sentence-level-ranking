@@ -1,0 +1,13 @@
+._.*
+._*
+__pycache__/
+
+script.sh
+
+.env
+
+dataset/
+
+slurm-*.out
+
+outputs_slurm/

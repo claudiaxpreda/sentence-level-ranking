@@ -1,0 +1,18 @@
+transformers
+numpy
+matplotlib
+pandas
+scikit-learn
+seaborn
+nltk
+pytorch-lightning
+spacy
+spacy download en_core_web_lg
+git+https://github.com/lucadiliello/bleurt-pytorch.git
+evaluate
+bert-score
+datasets
+pytorch-crf
+tf-keras
+python-dotenv
+rbo

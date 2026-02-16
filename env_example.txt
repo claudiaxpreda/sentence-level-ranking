@@ -1,0 +1,2 @@
+HUGGING_FACE_TOKEN = '' #ReadToken
+HUGGING_FACE_TOKEN_WRITE = '' #WriteToken
