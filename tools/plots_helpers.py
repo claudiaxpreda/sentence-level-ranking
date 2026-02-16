@@ -98,7 +98,7 @@ def plot_correlation_matrix(M1, M2, M3):
                 matrix_data[i, j] = avg_score
                 matrix_data[j, i] = avg_score # Mirror it
 
-    # 4. Visualize
+    # Visualize
     rbo_df = pd.DataFrame(matrix_data, index=methods, columns=methods)
     plt.figure(figsize=(8, 6))
     sns.heatmap(rbo_df, annot=True, cmap="Blues", vmin=0, vmax=1,)
