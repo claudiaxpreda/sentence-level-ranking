@@ -12,7 +12,6 @@ from utils import *
 from tqdm import tqdm
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-
 SPLIT = sys.argv[1]
 DATASET_NAME = sys.argv[2]
 MODEL_NAME_CONVERT = sys.argv[3]
@@ -34,7 +33,6 @@ model_convert = AutoModelForCausalLM.from_pretrained(
 
 model_bluert = BleurtForSequenceClassification.from_pretrained(MODEL_NAME_BLEURT).to(device)
 tokenizer_bleurt = BleurtTokenizer.from_pretrained(MODEL_NAME_BLEURT)
-
 
 start_time = start_session_details(SPLIT, DATASET_NAME, BATCH_SIZE, METHOD)
 
@@ -83,7 +81,6 @@ for i in tqdm(range(0, len(chats), BATCH_SIZE)):
     
     statements += contents
     bluert_scores += res
-
 
 dataset = dataset.add_column('statement', statements)
 columns.append('statement')
