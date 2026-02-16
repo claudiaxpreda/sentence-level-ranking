@@ -6,7 +6,6 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'too
 from prompts import get_qa_to_statement_user_prompt, get_qa_to_statement_system_prompt
 from scipy.stats import rankdata
 
-
 def chat_template(question, answer): 
     chat = [
         {'role': 'system', 'content': get_qa_to_statement_system_prompt() },
