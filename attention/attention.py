@@ -16,7 +16,7 @@ from prompts import PROMPT_QA, PROMPT_START
 SPLIT = sys.argv[1]
 DATASET_NAME = sys.argv[2]
 MODEL_NAME = sys.argv[3]
-BATCH_SIZE = sys.argv[4]
+BATCH_SIZE = int(sys.argv[4])
 PATH_BASE = sys.argv[5]
 METHOD = 'M3'
 

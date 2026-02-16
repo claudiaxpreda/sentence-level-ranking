@@ -15,7 +15,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 SPLIT = sys.argv[1]
 DATASET_NAME = sys.argv[2]
 MODEL_NAME_CONVERT = sys.argv[3]
-BATCH_SIZE = sys.argv[4]
+BATCH_SIZE =int(sys.argv[4])
 PATH_BASE = sys.argv[5]
 METHOD = 'M1'
 MODEL_NAME_BLEURT = 'lucadiliello/BLEURT-20'

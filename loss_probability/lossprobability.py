@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'too
 import pandas as pd
 from dotenv import dotenv_values
 from utils import *
-from sentences_helpers import *
+from lossprobability_helpers import *
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from tqdm import tqdm
 
@@ -16,7 +16,7 @@ from tqdm import tqdm
 SPLIT = sys.argv[1]
 DATASET_NAME = sys.argv[2]
 MODEL_NAME = sys.argv[3]
-BATCH_SIZE = sys.argv[4]
+BATCH_SIZE = int(sys.argv[4])
 PATH_BASE = sys.argv[5]
 METHOD = 'M2'
 
