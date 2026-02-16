@@ -15,7 +15,7 @@ answer statement;
 - Each method is found in their respecie file. 
 - Common modules are found in the tools file. 
 - In requirements.txt you will find the packages needed to run the solution. 
-- Currently we support two datasets SQUAD2 and FairytaleQA. In you wish to add more datasets please see files tools/utils.py and follow the pattern. 
+- Currently we support two datasets SQUAD2 and FairytaleQA. If you wish to add more datasets please see files tools/utils.py and follow the pattern. 
 - The .env file is needed to interact with HuggingFace Hub (for example, for model's access). An example is provided in this project. 
 - By default the new datasets are saved as cvs files based on the path provided. 
 - The code has been tested only on Qwen3 family of models.
