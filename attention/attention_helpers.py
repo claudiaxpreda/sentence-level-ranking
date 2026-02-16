@@ -45,32 +45,17 @@ def compute_attention_score_per_sentence(attention, input_prompt, contents, answ
     skip_padding = torch.count_nonzero(input_prompt['input_ids'][indx] == tokenizer.pad_token_id).item()
     scores = attention[:, indx]
     scores = scores[:, :,skip_padding:, skip_padding:]
-    #print(scores.shape)
     scores = scores.mean(dim=0).mean(dim=0)
-    #print(scores.shape)
-    #print(scores)
-
+    
     inputs = input_prompt['input_ids'][indx][skip_padding:]
-    #print(inputs)
-    ctx_start, ctx_end = get_indexes_context(ctx, skip_entry, tokenizer)
+    ctx_start, _ = get_indexes_context(ctx, skip_entry, tokenizer)
     ans_start, ans_end = get_indexes_answer(answers[indx], inputs, tokenizer)
-  # print(ans_start, ans_end)
-  # print(tokenizer.decode(inputs[ans_start:ans_end]))
-
     sents_indx = get_sents_indexes(sentences[indx], ctx_start, tokenizer)
 
     sents_score_0 = [scores[ans_start : ans_end, sent_start : sent_end].sum(dim=1) for
                  (sent_start, sent_end) in sents_indx]
 
-
     sents_score = [torch.max(score).item() for score in sents_score_0]
-
-    # sents_score_0 = [torch.max(scores[ans_start : ans_end, sent_start : sent_end], dim=1).values for
-    #              (sent_start, sent_end) in sents_indx]
-
-
-    # sents_score = [torch.sum(score, dim=0).item() for score in sents_score_0]
-
 
     batch_scores.append(sents_score)
 
